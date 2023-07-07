@@ -69,8 +69,8 @@ document.querySelectorAll('.js-add-to-cart')
       let matchingItem;
 
       cart.forEach((item)=>{
-        if(productId === item.productName){
-         matchingId = item;
+        if(productId === item.productId){
+         matchingItem = item;
         }
       });
       if(matchingItem){
@@ -80,8 +80,17 @@ document.querySelectorAll('.js-add-to-cart')
           productId: productId,
           quantity: 1
         });
-      }
+    }
+
+
+    let cartQuantity=0;
+
+    cart.forEach((item)=> {
+        cartQuantity += item.quantity;
+    });
+
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
       
-      console.log(cart);
+      
     });
   });
